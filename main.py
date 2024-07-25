@@ -34,7 +34,6 @@ for i in range(2, ws.max_row+1):
             teto_prioridade[ws.cell(row=i, column=5).value] = ws.cell(row=i, column=6).value
     else:
         recursos_prioridades = ws.cell(row=i, column=5).value[1:-1].replace(" ", "").split(",")
-        print(recursos_prioridades)
         for j in range(0, len(recursos_prioridades)):
             if recursos_prioridades[j] not in teto_prioridade:
                 teto_prioridade[recursos_prioridades[j]] = ws.cell(row=i, column=6).value
@@ -74,5 +73,6 @@ for i in range(2, ws.max_row+1):
 # order = heranca_prioridade(tarefas, recursos)
 # print(order)
 
-heranca_prioridade(tarefas, recursos, teto_prioridade)
+order = heranca_prioridade(tarefas, recursos, teto_prioridade)
+print(order)
 
